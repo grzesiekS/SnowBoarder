@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     [SerializeField] float loadDelay = 1f;
+    [SerializeField] ParticleSystem finishEffect;
 
     private string tagPlayer = "Player";
     private int levelOne = 0;
@@ -14,6 +15,7 @@ public class FinishLine : MonoBehaviour
     {
         if(collision.tag == tagPlayer)
         {
+            finishEffect.Play();
             Invoke("ReloadScene", loadDelay);
         }
     }
