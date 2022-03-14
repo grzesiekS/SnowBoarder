@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
+    [SerializeField] float loadDelay = 0.5f;
+
     private string tagLevelSurface = "LevelSurface";
     private int levelOne = 0;
 
@@ -12,7 +14,12 @@ public class CrashDetector : MonoBehaviour
     {
         if(collision.tag == tagLevelSurface)
         {
-            SceneManager.LoadScene(levelOne);
+            Invoke("ReloadScene", loadDelay);
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(levelOne);
     }
 }

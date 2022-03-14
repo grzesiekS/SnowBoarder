@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
 
     [SerializeField] float torqueAmount = 1f;
+    [SerializeField] float finishGameDelay = 2f;
 
     // Start is called before the first frame update
     void Start()

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    [SerializeField] float loadDelay = 1f;
+
     private string tagPlayer = "Player";
     private int levelOne = 0;
 
@@ -12,7 +14,12 @@ public class FinishLine : MonoBehaviour
     {
         if(collision.tag == tagPlayer)
         {
-            SceneManager.LoadScene(levelOne);
+            Invoke("ReloadScene", loadDelay);
         }
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(levelOne);
     }
 }
